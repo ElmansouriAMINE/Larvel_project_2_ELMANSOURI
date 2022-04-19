@@ -84,7 +84,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <a href="{{ url('http://127.0.0.1:8000/professeur')}}" class="nav-link {{ (request()->is('user/profile*')) ? 'active' : '' }}">
                   <i class="nav-icon fas fa-user"></i>
                   <p>
-                  Mon Profile
+                  Profile
                   </p>
                 </a>
               </li>
@@ -93,7 +93,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                  <i class="nav-icon fas fa-folder"></i>
             
               <p>
-               Mes Dossiers
+               Dossiers
               </p>
             </a>
           </li>

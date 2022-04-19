@@ -10,9 +10,11 @@
                         <h2>Dossiers</h2>
                     </div>
                     <div class="card-body">
+                        @if(Auth::user()->role===1)
                         <a href="{{ url('/dossier/create') }}" class="btn btn-success btn-sm" title="Add New Dossier">
                             <i class="fa fa-plus" aria-hidden="true"></i> Add New
                         </a>
+                        @endif
                         <br/>
                         <br/>
                         <div class="table-responsive">
@@ -36,12 +38,15 @@
  
                                         <td>
                                             <a href="{{ url('/dossier/' . $item->id) }}" title="View Dossier"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
+                                            @if(Auth::user()->role===1)
                                             <a href="{{ url('/dossier/' . $item->id . '/edit') }}" title="Edit Dossier"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
- 
+                                            @endif
                                             <form method="POST" action="{{ url('/dossier' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                                 {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}
+                                                @if(Auth::user()->role===1)
                                                 <button type="submit" class="btn btn-danger btn-sm" title="Delete Dossier" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
+                                                @endif
                                             </form>
                                         </td>
                                     </tr>
